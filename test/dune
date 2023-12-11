@@ -1,0 +1,77 @@
+(rule
+ (deps key.txt iv.txt helloworld.txt)
+ (targets enc1.output)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run ../aes enc %{deps}))))
+
+(rule
+ (alias runtest)
+ (action
+  (diff helloworld.expected enc1.output)))
+
+(rule
+ (deps key.txt iv.txt helloworld.expected)
+ (targets dec1.output)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run ../aes dec %{deps}))))
+
+(rule
+ (alias runtest)
+ (action
+  (diff helloworld.txt dec1.output)))
+
+(rule
+ (deps key.txt iv.txt helloworld.expected)
+ (targets crack1.output)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run ../aes crack %{deps}))))
+
+(rule
+ (alias runtest)
+ (action
+  (diff helloworld.txt crack1.output)))
+
+(rule
+ (deps key.txt iv.txt yesterday.txt)
+ (targets enc2.output)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run ../aes enc %{deps}))))
+
+(rule
+ (alias runtest)
+ (action
+  (diff yesterday.expected enc2.output)))
+
+(rule
+ (deps key.txt iv.txt yesterday.expected)
+ (targets dec2.output)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run ../aes dec %{deps}))))
+
+(rule
+ (alias runtest)
+ (action
+  (diff yesterday.txt dec2.output)))
+
+(rule
+ (deps key.txt iv.txt yesterday.expected)
+ (targets crack2.output)
+ (action
+  (with-stdout-to
+   %{targets}
+   (run ../aes crack %{deps}))))
+
+(rule
+ (alias runtest)
+ (action
+  (diff yesterday.txt crack2.output)))

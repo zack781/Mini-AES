@@ -1,0 +1,152 @@
+# dune test
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Workspace root:
+# /Users/zack/Documents/repos/KAIST/CS348/cs348-2023-spring-hw2-zack781
+# Auto-detected concurrency: 8
+$ /opt/homebrew/bin/ocamlc.opt -config > /var/folders/rz/nth7hzw57x52qnhl6pxxgd440000gn/T/dune_d229b7_output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; toplevel_path = Some External "/Users/zack/.opam/4.14.0/lib/toplevel"
+#  ; ocaml_bin = External "/opt/homebrew/bin"
+#  ; ocaml = Ok External "/Users/zack/.opam/4.14.0/bin/ocaml"
+#  ; ocamlc = External "/opt/homebrew/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/opt/homebrew/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/opt/homebrew/bin/ocamldep.opt"
+#  ; ocamlmklib = Ok External "/opt/homebrew/bin/ocamlmklib.opt"
+#  ; env =
+#      map
+#        { "DUNE_OCAML_HARDCODED" : "/Users/zack/.opam/4.14.0/lib"
+#        ; "DUNE_OCAML_STDLIB" : "/opt/homebrew/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" :
+#            "/Users/zack/Documents/repos/KAIST/CS348/cs348-2023-spring-hw2-zack781"
+#        ; "INSIDE_DUNE" :
+#            "/Users/zack/Documents/repos/KAIST/CS348/cs348-2023-spring-hw2-zack781/_build/default"
+#        ; "OCAMLFIND_IGNORE_DUPS_IN" :
+#            "/Users/zack/Documents/repos/KAIST/CS348/cs348-2023-spring-hw2-zack781/_build/install/default/lib"
+#        ; "OCAMLPATH" :
+#            "/Users/zack/Documents/repos/KAIST/CS348/cs348-2023-spring-hw2-zack781/_build/install/default/lib"
+#        ; "OCAMLTOP_INCLUDE_PATH" :
+#            "/Users/zack/Documents/repos/KAIST/CS348/cs348-2023-spring-hw2-zack781/_build/install/default/lib/toplevel"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; findlib_paths = [ External "/Users/zack/.opam/4.14.0/lib" ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; ocaml_config =
+#      { version = "4.14.0"
+#      ; standard_library_default = "/opt/homebrew/lib/ocaml"
+#      ; standard_library = "/opt/homebrew/lib/ocaml"
+#      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#      ; ccomp_type = "cc"
+#      ; c_compiler = "clang"
+#      ; ocamlc_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-pthread" ]
+#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64" ]
+#      ; ocamlopt_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-pthread" ]
+#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64" ]
+#      ; bytecomp_c_compiler =
+#          [ "clang"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-pthread"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; native_c_compiler =
+#          [ "clang"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-pthread"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ]
+#      ; native_c_libraries = [ "-lm" ]
+#      ; native_pack_linker = [ "ld"; "-r"; "-o" ]
+#      ; cc_profile = []
+#      ; architecture = "arm64"
+#      ; model = "default"
+#      ; int_size = 63
+#      ; word_size = 64
+#      ; system = "macosx"
+#      ; asm = [ "clang"; "-c"; "-Wno-trigraphs" ]
+#      ; asm_cfi_supported = true
+#      ; with_frame_pointers = false
+#      ; ext_exe = ""
+#      ; ext_obj = ".o"
+#      ; ext_asm = ".s"
+#      ; ext_lib = ".a"
+#      ; ext_dll = ".so"
+#      ; os_type = "Unix"
+#      ; default_executable_name = "a.out"
+#      ; systhread_supported = true
+#      ; host = "aarch64-apple-darwin22.1.0"
+#      ; target = "aarch64-apple-darwin22.1.0"
+#      ; profiling = false
+#      ; flambda = false
+#      ; spacetime = false
+#      ; safe_string = true
+#      ; exec_magic_number = "Caml1999X031"
+#      ; cmi_magic_number = "Caml1999I031"
+#      ; cmo_magic_number = "Caml1999O031"
+#      ; cma_magic_number = "Caml1999A031"
+#      ; cmx_magic_number = "Caml1999Y031"
+#      ; cmxa_magic_number = "Caml1999Z031"
+#      ; ast_impl_magic_number = "Caml1999M031"
+#      ; ast_intf_magic_number = "Caml1999N031"
+#      ; cmxs_magic_number = "Caml1999D031"
+#      ; cmt_magic_number = "Caml1999T031"
+#      ; natdynlink_supported = true
+#      ; supports_shared_libraries = true
+#      ; windows_unicode = false
+#      }
+#  }
+$ (cd _build/default/test && ../aes crack key.txt iv.txt yesterday.expected) > _build/default/test/crack2.output
+$ (cd _build/default/test && ../aes enc key.txt iv.txt helloworld.txt) > _build/default/test/enc1.output
+$ (cd _build/default/test && ../aes dec key.txt iv.txt helloworld.expected) > _build/default/test/dec1.output
+$ (cd _build/default/test && ../aes crack key.txt iv.txt helloworld.expected) > _build/default/test/crack1.output
+$ (cd _build/default/test && ../aes dec key.txt iv.txt yesterday.expected) > _build/default/test/dec2.output
+$ /opt/homebrew/bin/git --no-pager diff --no-index --color=always -u _build/default/test/helloworld.txt _build/default/test/crack1.output
+> diff --git a/_build/default/test/helloworld.txt b/_build/default/test/crack1.output
+> index 31e0fce..3a573bb 100644
+> --- a/_build/default/test/helloworld.txt
+> +++ b/_build/default/test/crack1.output
+> @@ -1 +1,25 @@
+> -helloworld
+> +Yesterday all my troubles seemed so far away.
+> +Now it looks as though they're here to stay.
+> +Oh, I believe in yesterday.
+> +
+> +Suddenly, I'm not half the man I used to be.
+> +There's a shadow hanging over me.
+> +Oh, yesterday came suddenly.
+> +
+> +Why she had to go?
+> +I don't know, she wouldn't say.
+> +I said something wrong.
+> +Now I long for yesterday.
+> +
+> +Yesterday love was such an easy game to play.
+> +Now I need a place to hide away.
+> +Oh, I believe in yesterday.
+> +
+> +Why she had to go?
+> +I don't know, she wouldn't say.
+> +I said something wrong.
+> +Now I long for yesterday.
+> +
+> +Yesterday love was such an easy game to play.
+> +Now I need a place to hide away.
+> +Oh, I believe in yesterday.
+[1]
+$ (cd _build/default/test && ../aes enc key.txt iv.txt yesterday.txt) > _build/default/test/enc2.output
